@@ -1,40 +1,169 @@
 let totalPoints = parseInt(localStorage.getItem('totalPoints')) || 0;
 let rollCount = parseInt(localStorage.getItem('rollCount')) || 0;
 
-const achievements = [
-    { id: 'noviceRoller', name: 'Novice Roller', description: 'Reach 100 total points.', condition: (rollType = null) => totalPoints >= 100, completed: false },
-    { id: 'experiencedGambler', name: 'Experienced Gambler', description: 'Reach 1,000 total points.', condition: (rollType = null) => totalPoints >= 1000, completed: false },
-    { id: 'diceMaster', name: 'Dice Master', description: 'Reach 10,000 total points.', condition: (rollType = null) => totalPoints >= 10000, completed: false },
-    { id: 'pointTycoon', name: 'Point Tycoon', description: 'Reach 100,000 total points.', condition: (rollType = null) => totalPoints >= 100000, completed: false },
-    
-    { id: 'frequentRoller', name: 'Frequent Roller', description: 'Roll the dice 100 times.', condition: (rollType = null) => rollCount >= 100, completed: false },
-    { id: 'addictedRoller', name: 'Addicted Roller', description: 'Roll the dice 1,000 times.', condition: (rollType = null) => rollCount >= 1000, completed: false },
-    { id: 'obsessiveRoller', name: 'Obsessive Roller', description: 'Roll the dice 10,000 times.', condition: (rollType = null) => rollCount >= 10000, completed: false },
-    { id: 'endlessRoller', name: 'Endless Roller', description: 'Roll the dice 100,000 times.', condition: (rollType = null) => rollCount >= 100000, completed: false },
-    // rollType-based remain unchanged
-    { id: 'yahtzee', name: 'Yahtzee!', description: 'Roll a Yahtzee (Five of a Kind).', condition: (rollType) => rollType === 'Yahtzee', completed: false },
-    { id: 'largeStraight', name: 'Big Ladder', description: 'Roll a Large Straight.', condition: (rollType) => rollType === 'Large Straight', completed: false },
-    { id: 'smallStraight', name: 'Small Ladder', description: 'Roll a Small Straight.', condition: (rollType) => rollType === 'Small Straight', completed: false },
-    { id: 'fullHouse', name: 'Full House Fun', description: 'Roll a Full House.', condition: (rollType) => rollType === 'Full House', completed: false },
-    { id: 'fourOfAKind', name: 'Quadruple Threat', description: 'Roll a 4 of a Kind.', condition: (rollType) => rollType === '4 of a Kind', completed: false },
-    { id: 'threeOfAKind', name: 'Triple Trouble', description: 'Roll a 3 of a Kind.', condition: (rollType) => rollType === '3 of a Kind', completed: false },
-    { id: 'twoPair', name: 'Double Vision', description: 'Roll a 2 Pair.', condition: (rollType) => rollType === '2 Pair', completed: false },
-    { id: 'onePair', name: 'Just a Pair', description: 'Roll a 1 Pair.', condition: (rollType) => rollType === '1 Pair', completed: false },
-];
+let noviceRollerCompleted = JSON.parse(localStorage.getItem('noviceRollerCompleted')) || false;
+let experiencedGamblerCompleted = JSON.parse(localStorage.getItem('experiencedGamblerCompleted')) || false;
+let diceMasterCompleted = JSON.parse(localStorage.getItem('diceMasterCompleted')) || false;
+let pointTycoonCompleted = JSON.parse(localStorage.getItem('pointTycoonCompleted')) || false;
+
+let frequentRollerCompleted = JSON.parse(localStorage.getItem('frequentRollerCompleted')) || false;
+let addictedRollerCompleted = JSON.parse(localStorage.getItem('addictedRollerCompleted')) || false;
+let obsessiveRollerCompleted = JSON.parse(localStorage.getItem('obsessiveRollerCompleted')) || false;
+let endlessRollerCompleted = JSON.parse(localStorage.getItem('endlessRollerCompleted')) || false;
+
+let yahtzeeCompleted = JSON.parse(localStorage.getItem('yahtzeeCompleted')) || false;
+let largeStraightCompleted = JSON.parse(localStorage.getItem('largeStraightCompleted')) || false;
+let smallStraightCompleted = JSON.parse(localStorage.getItem('smallStraightCompleted')) || false;
+let fullHouseCompleted = JSON.parse(localStorage.getItem('fullHouseCompleted')) || false;
+let fourOfAKindCompleted = JSON.parse(localStorage.getItem('fourOfAKindCompleted')) || false;
+let threeOfAKindCompleted = JSON.parse(localStorage.getItem('threeOfAKindCompleted')) || false;
+let twoPairCompleted = JSON.parse(localStorage.getItem('twoPairCompleted')) || false;
+let onePairCompleted = JSON.parse(localStorage.getItem('onePairCompleted')) || false;
 
 function loadAchievements() {
-    const savedAchievements = JSON.parse(localStorage.getItem('achievements'));
-    if (savedAchievements) {
-        achievements.forEach(achievement => {
-            const saved = savedAchievements.find(sa => sa.id === achievement.id);
-            if (saved) {
-                achievement.completed = saved.completed;
-            }
-        });
-    }
+    noviceRollerCompleted = JSON.parse(localStorage.getItem('noviceRollerCompleted')) || false;
+    experiencedGamblerCompleted = JSON.parse(localStorage.getItem('experiencedGamblerCompleted')) || false;
+    diceMasterCompleted = JSON.parse(localStorage.getItem('diceMasterCompleted')) || false;
+    pointTycoonCompleted = JSON.parse(localStorage.getItem('pointTycoonCompleted')) || false;
+
+    frequentRollerCompleted = JSON.parse(localStorage.getItem('frequentRollerCompleted')) || false;
+    addictedRollerCompleted = JSON.parse(localStorage.getItem('addictedRollerCompleted')) || false;
+    obsessiveRollerCompleted = JSON.parse(localStorage.getItem('obsessiveRollerCompleted')) || false;
+    endlessRollerCompleted = JSON.parse(localStorage.getItem('endlessRollerCompleted')) || false;
+
+    yahtzeeCompleted = JSON.parse(localStorage.getItem('yahtzeeCompleted')) || false;
+    largeStraightCompleted = JSON.parse(localStorage.getItem('largeStraightCompleted')) || false;
+    smallStraightCompleted = JSON.parse(localStorage.getItem('smallStraightCompleted')) || false;
+    fullHouseCompleted = JSON.parse(localStorage.getItem('fullHouseCompleted')) || false;
+    fourOfAKindCompleted = JSON.parse(localStorage.getItem('fourOfAKindCompleted')) || false;
+    threeOfAKindCompleted = JSON.parse(localStorage.getItem('threeOfAKindCompleted')) || false;
+    twoPairCompleted = JSON.parse(localStorage.getItem('twoPairCompleted')) || false;
+    onePairCompleted = JSON.parse(localStorage.getItem('onePairCompleted')) || false;
 }
 
-function saveAchievements() {
+function checkAchievements(rollType) {
+    if (!noviceRollerCompleted && totalPoints >= 100) {
+        noviceRollerCompleted = true;
+        localStorage.setItem('noviceRollerCompleted', true);
+        console.log('Achievement Unlocked: Novice Roller');
+    }
+    if (!experiencedGamblerCompleted && totalPoints >= 1000) {
+        experiencedGamblerCompleted = true;
+        localStorage.setItem('experiencedGamblerCompleted', true);
+        console.log('Achievement Unlocked: Experienced Gambler');
+    }
+    if (!diceMasterCompleted && totalPoints >= 10000) {
+        diceMasterCompleted = true;
+        localStorage.setItem('diceMasterCompleted', true);
+        console.log('Achievement Unlocked: Dice Master');
+    }
+    if (!pointTycoonCompleted && totalPoints >= 100000) {
+        pointTycoonCompleted = true;
+        localStorage.setItem('pointTycoonCompleted', true);
+        console.log('Achievement Unlocked: Point Tycoon');
+    }
+
+    if (!frequentRollerCompleted && rollCount >= 100) {
+        frequentRollerCompleted = true;
+        localStorage.setItem('frequentRollerCompleted', true);
+        console.log('Achievement Unlocked: Frequent Roller');
+    }
+    if (!addictedRollerCompleted && rollCount >= 1000) {
+        addictedRollerCompleted = true;
+        localStorage.setItem('addictedRollerCompleted', true);
+        console.log('Achievement Unlocked: Addicted Roller');
+    }
+    if (!obsessiveRollerCompleted && rollCount >= 10000) {
+        obsessiveRollerCompleted = true;
+        localStorage.setItem('obsessiveRollerCompleted', true);
+        console.log('Achievement Unlocked: Obsessive Roller');
+    }
+    if (!endlessRollerCompleted && rollCount >= 100000) {
+        endlessRollerCompleted = true;
+        localStorage.setItem('endlessRollerCompleted', true);
+        console.log('Achievement Unlocked: Endless Roller');
+    }
+
+    if (!yahtzeeCompleted && rollType === 'Yahtzee') {
+        yahtzeeCompleted = true;
+        localStorage.setItem('yahtzeeCompleted', true);
+        console.log('Achievement Unlocked: Yahtzee!');
+    }
+    if (!largeStraightCompleted && rollType === 'Large Straight') {
+        largeStraightCompleted = true;
+        localStorage.setItem('largeStraightCompleted', true);
+        console.log('Achievement Unlocked: Big Ladder');
+    }
+    if (!smallStraightCompleted && rollType === 'Small Straight') {
+        smallStraightCompleted = true;
+        localStorage.setItem('smallStraightCompleted', true);
+        console.log('Achievement Unlocked: Small Ladder');
+    }
+    if (!fullHouseCompleted && rollType === 'Full House') {
+        fullHouseCompleted = true;
+        localStorage.setItem('fullHouseCompleted', true);
+        console.log('Achievement Unlocked: Full House Fun');
+    }
+    if (!fourOfAKindCompleted && rollType === '4 of a Kind') {
+        fourOfAKindCompleted = true;
+        localStorage.setItem('fourOfAKindCompleted', true);
+        console.log('Achievement Unlocked: Quadruple Threat');
+    }
+    if (!threeOfAKindCompleted && rollType === '3 of a Kind') {
+        threeOfAKindCompleted = true;
+        localStorage.setItem('threeOfAKindCompleted', true);
+        console.log('Achievement Unlocked: Triple Trouble');
+    }
+    if (!twoPairCompleted && rollType === '2 Pair') {
+        twoPairCompleted = true;
+        localStorage.setItem('twoPairCompleted', true);
+        console.log('Achievement Unlocked: Double Vision');
+    }
+    if (!onePairCompleted && rollType === '1 Pair') {
+        onePairCompleted = true;
+        localStorage.setItem('onePairCompleted', true);
+        console.log('Achievement Unlocked: Just a Pair');
+    }
+    renderAchievements();
+}
+
+function renderAchievements() {
+    const achievementsListDiv = document.getElementById('achievementsList');
+    if (achievementsListDiv) {
+        achievementsListDiv.innerHTML = ''; // Clear previous content
+
+        const renderAchievementItem = (id, name, description, completed) => {
+            const status = completed ? 'Completed' : 'Not Completed';
+            const statusClass = completed ? 'achievement-completed' : 'achievement-not-completed';
+            return `
+                <div class="achievement-item">
+                    <span class="achievement-name">${name}</span>:
+                    <span class="achievement-description">${description}</span>
+                    <span class="${statusClass}">(${status})</span>
+                </div>
+            `;
+        };
+
+        achievementsListDiv.innerHTML += renderAchievementItem('noviceRoller', 'Novice Roller', 'Reach 100 total points.', noviceRollerCompleted);
+        achievementsListDiv.innerHTML += renderAchievementItem('experiencedGambler', 'Experienced Gambler', 'Reach 1,000 total points.', experiencedGamblerCompleted);
+        achievementsListDiv.innerHTML += renderAchievementItem('diceMaster', 'Dice Master', 'Reach 10,000 total points.', diceMasterCompleted);
+        achievementsListDiv.innerHTML += renderAchievementItem('pointTycoon', 'Point Tycoon', 'Reach 100,000 total points.', pointTycoonCompleted);
+
+        achievementsListDiv.innerHTML += renderAchievementItem('frequentRoller', 'Frequent Roller', 'Roll the dice 100 times.', frequentRollerCompleted);
+        achievementsListDiv.innerHTML += renderAchievementItem('addictedRoller', 'Addicted Roller', 'Roll the dice 1,000 times.', addictedRollerCompleted);
+        achievementsListDiv.innerHTML += renderAchievementItem('obsessiveRoller', 'Obsessive Roller', 'Roll the dice 10,000 times.', obsessiveRollerCompleted);
+        achievementsListDiv.innerHTML += renderAchievementItem('endlessRoller', 'Endless Roller', 'Roll the dice 100,000 times.', endlessRollerCompleted);
+
+        achievementsListDiv.innerHTML += renderAchievementItem('yahtzee', 'Yahtzee!', 'Roll a Yahtzee (Five of a Kind).', yahtzeeCompleted);
+        achievementsListDiv.innerHTML += renderAchievementItem('largeStraight', 'Big Ladder', 'Roll a Large Straight.', largeStraightCompleted);
+        achievementsListDiv.innerHTML += renderAchievementItem('smallStraight', 'Small Ladder', 'Roll a Small Straight.', smallStraightCompleted);
+        achievementsListDiv.innerHTML += renderAchievementItem('fullHouse', 'Full House Fun', 'Roll a Full House.', fullHouseCompleted);
+        achievementsListDiv.innerHTML += renderAchievementItem('fourOfAKind', 'Quadruple Threat', 'Roll a 4 of a Kind.', fourOfAKindCompleted);
+        achievementsListDiv.innerHTML += renderAchievementItem('threeOfAKind', 'Triple Trouble', 'Roll a 3 of a Kind.', threeOfAKindCompleted);
+        achievementsListDiv.innerHTML += renderAchievementItem('twoPair', 'Double Vision', 'Roll a 2 Pair.', twoPairCompleted);
+        achievementsListDiv.innerHTML += renderAchievementItem('onePair', 'Just a Pair', 'Roll a 1 Pair.', onePairCompleted);
+    }
+}
     localStorage.setItem('achievements', JSON.stringify(achievements.map(a => ({ id: a.id, completed: a.completed }))));
 }
 
