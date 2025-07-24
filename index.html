@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="logo-container">
+        <svg width="300" height="100" viewBox="0 0 300 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <style>
+                .logo-text {
+                    font: bold 48px sans-serif;
+                    fill: #39ff14;
+                    text-shadow: 0 0 10px #39ff14, 0 0 20px #222;
+                }
+
+                .dice-icon-svg {
+                    fill: #39ff14;
+                }
+            </style>
+            <text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" class="logo-text">Dice Roll</text>
+            <!-- Simple dice icon (replace with more complex SVG if desired) -->
+            <rect x="10" y="10" width="30" height="30" rx="5" ry="5" class="dice-icon-svg" />
+            <circle cx="17.5" cy="17.5" r="3" fill="#111" />
+            <circle cx="32.5" cy="32.5" r="3" fill="#111" />
+        </svg>
+    </div>
+    <button class="PlayButton" onclick="Game()">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+            <path d="M8 5v14l11-7z" />
+        </svg>
+    </button>
+    <script>
+        function Game() {
+            window.location.href = "./game.html";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,295 @@
+.achievementstitel {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #39ff14;
+    margin-bottom: 24px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #39ff14, 0 0 20px #fff;
+    text-align: center;
+}
+.achievementstext{
+    font-size: 16px;
+    color: #555; 
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+.PlayButton {
+    background: linear-gradient(90deg, #39ff14 0%, #1e7c2c 100%);
+    color: #111;
+    font-size: 2rem;
+    font-weight: bold;
+    border: 2px solid #39ff14; /* Green border for accent */
+    border-radius: 16px;
+    padding: 20px 60px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+    letter-spacing: 1px;
+    box-shadow: none; /* Remove any box shadow */
+    position: relative;
+    z-index: 1;
+}
+
+.PlayButton:hover, .PlayButton:focus {
+    background: linear-gradient(90deg, #1e7c2c 0%, #39ff14 100%);
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 6px 32px #39ff1490;
+    outline: none;
+}
+
+.logo-container {
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background: #111;
+    color: #e0ffe0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    /* Add border using a pseudo-element */
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    pointer-events: none;
+    border: 8px solid;
+    border-image: linear-gradient(90deg, #39ff14 0%, #1e7c2c 100%);
+    border-image-slice: 1;
+    border-radius: 0;
+    transition: border-width 0.3s;
+}
+
+@media (max-width: 600px) {
+    body::before {
+        border-width: 18px;
+    }
+}
+
+.logo-container {
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* White background for dicepoints screen */
+.dicepoints-bg {
+    background: #111;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Title styling, green accent */
+.dicepointstitel {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #39ff14;
+    margin-bottom: 24px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #39ff14, 0 0 20px #fff;
+    text-align: center;
+}
+
+/* Text styling */
+.dicepointstext {
+    font-size: 1.1rem;
+    color: #fff;
+    background: #222;
+    border-radius: 16px;
+    padding: 24px 20px;
+    margin: 0 0 32px 0;
+    box-shadow: 0 2px 16px #39ff1420;
+    border: 2px solid #39ff14;
+    max-width: 95vw;
+    width: 570px; /* Reduced from 480px to 420px for better wrapping */
+    text-align: left;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    white-space: pre-wrap;    /* Allow wrapping in <pre> */
+    word-break: break-word;   /* Break long words if needed */
+    overflow: hidden;
+}
+
+@media (max-width: 600px) {
+    .dicepointstext {
+        width: 98vw;
+        max-width: 98vw;
+        padding: 18px 6px;
+        font-size: 1rem;
+    }
+}
+
+/* Back button styled with green gradient */
+.BackButton {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    background: linear-gradient(90deg, #39ff14 0%, #1e7c2c 100%);
+    color: #111;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 2px solid #39ff14;
+    border-radius: 12px;
+    padding: 12px 36px;
+    margin-bottom: 32px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: none;
+    letter-spacing: 1px;
+    z-index: 10;
+}
+
+.BackButton:hover, .BackButton:focus {
+    background: linear-gradient(90deg, #1e7c2c 0%, #39ff14 100%);
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 4px 24px #39ff1490;
+    outline: none;
+}
+
+.HomeButton {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    background: linear-gradient(90deg, #39ff14 0%, #1e7c2c 100%);
+    color: #111;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 2px solid #39ff14;
+    border-radius: 12px;
+    padding: 12px 36px;
+    margin-bottom: 32px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: none;
+    letter-spacing: 1px;
+    z-index: 10;
+}
+
+.HomeButton:hover, .HomeButton:focus {
+    background: linear-gradient(90deg, #1e7c2c 0%, #39ff14 100%);
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 4px 24px #39ff1490;
+    outline: none;
+}
+
+.top-buttons {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    display: flex;
+    gap: 16px;
+    z-index: 20;
+}
+
+/* Style for all top nav buttons (Home, Dice Points, Upgrades) */
+.TopNavButton {
+    background: linear-gradient(90deg, #39ff14 0%, #1e7c2c 100%);
+    color: #111;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 2px solid #39ff14;
+    border-radius: 12px;
+    padding: 12px 36px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: none;
+    letter-spacing: 1px;
+    z-index: 10;
+    margin-bottom: 0;
+}
+
+.TopNavButton:hover, .TopNavButton:focus {
+    background: linear-gradient(90deg, #1e7c2c 0%, #39ff14 100%);
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 4px 24px #39ff1490;
+    outline: none;
+}
+
+.RollDiceButton {
+    background: linear-gradient(90deg, #39ff14 0%, #1e7c2c 100%);
+    color: #111;
+    font-size: 2.5rem;
+    font-weight: bold;
+    border: 2px solid #39ff14;
+    border-radius: 20px;
+    padding: 25px 70px;
+    margin-top: 40px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+    letter-spacing: 2px;
+    box-shadow: 0 0 15px #39ff14, 0 0 30px #39ff14;
+}
+
+.RollDiceButton:hover, .RollDiceButton:focus {
+    background: linear-gradient(90deg, #1e7c2c 0%, #39ff14 100%);
+    color: #fff;
+    transform: scale(1.08);
+    box-shadow: 0 8px 40px #39ff1490;
+    outline: none;
+}
+
+.dice-icon {
+    font-size: 8rem; /* Make dice icons bigger */
+    margin: 0 10px; /* Add some spacing between dice */
+    color: #39ff14; /* Green color for dice */
+    text-shadow: 0 0 5px #39ff14;
+}
+#diceValues{
+    margin-top: 10px;
+    font-size: 5rem;
+    font-weight: bold;
+    
+}
+
+.achievement-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #39ff14;
+    border-radius: 8px;
+    background-color: #222;
+}
+
+.achievement-name {
+    font-weight: bold;
+    color: #39ff14;
+}
+
+.achievement-description {
+    color: #e0ffe0;
+}
+
+.achievement-completed {
+    color: #00ff00; /* Green for completed */
+    font-weight: bold;
+}
+
+.achievement-not-completed {
+    color: #ff0000; /* Red for not completed */
+    font-weight: bold;
+}

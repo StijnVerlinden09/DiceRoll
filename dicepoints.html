@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Points</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body class="dicepoints-bg">
+    <div class="top-buttons">
+    <button class="TopNavButton" onclick="Game()">Back</button>
+  </div>
+    <div class="dicepointstitel">Dice Points</div>
+    <div class="dicepointstext">
+        <pre>
+  Each dice roll can give you a different
+  amount of points.
+
+  1 point:  1 Pair
+  2 points: 2 Pair
+  2 points: 3 of a Kind
+  3 points: 4 of a Kind
+  4 points: Full House      (3 of a kind and 2 of a kind)
+  5 points: Small Straight  (1-2-3-4 or 2-3-4-5)
+  6 points: Large Straight  (1-2-3-4-5)
+  7 points: Yahtzee         (Five of a kind)
+        </pre>
+    </div>
+
+    <script>
+        function Game() {
+            window.location.href = "./game.html";
+        }
+    </script>
+</body>
+</html>

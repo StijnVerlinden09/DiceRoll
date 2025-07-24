@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <div class="top-buttons">
+    <button class="TopNavButton" onclick="Game()">Back</button>
+  </div>
+   <div class="achievementstitel"><h1>Achievements:</h1></div>
+    <div class="achievementstext" id="achievementsList">
+        <!-- Achievements will be rendered here by JavaScript -->
+    </div>
+    <script>
+        function Game() {
+            window.location.href = "./game.html";
+        }
+    </script>
+    <script src="./script.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderAchievements();
+        });
+    </script>
+</body>
+
+</html>
