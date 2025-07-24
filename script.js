@@ -2,16 +2,16 @@ let totalPoints = parseInt(localStorage.getItem('totalPoints')) || 0;
 let rollCount = parseInt(localStorage.getItem('rollCount')) || 0;
 
 const achievements = [
-    { id: 'noviceRoller', name: 'Novice Roller', description: 'Reach 100 total points.', condition: (rollType = null) => totalPoints >= 100, completed: false },
-    { id: 'experiencedGambler', name: 'Experienced Gambler', description: 'Reach 1,000 total points.', condition: (rollType = null) => totalPoints >= 1000, completed: false },
-    { id: 'diceMaster', name: 'Dice Master', description: 'Reach 10,000 total points.', condition: (rollType = null) => totalPoints >= 10000, completed: false },
-    { id: 'pointTycoon', name: 'Point Tycoon', description: 'Reach 100,000 total points.', condition: (rollType = null) => totalPoints >= 100000, completed: false },
+    { id: 'noviceRoller', name: 'Novice Roller', description: 'Reach 100 total points.', condition: () => totalPoints >= 100, completed: false },
+    { id: 'experiencedGambler', name: 'Experienced Gambler', description: 'Reach 1,000 total points.', condition: () => totalPoints >= 1000, completed: false },
+    { id: 'diceMaster', name: 'Dice Master', description: 'Reach 10,000 total points.', condition: () => totalPoints >= 10000, completed: false },
+    { id: 'pointTycoon', name: 'Point Tycoon', description: 'Reach 100,000 total points.', condition: () => totalPoints >= 100000, completed: false },
     
-    { id: 'frequentRoller', name: 'Frequent Roller', description: 'Roll the dice 100 times.', condition: (rollType = null) => rollCount >= 100, completed: false },
-    { id: 'addictedRoller', name: 'Addicted Roller', description: 'Roll the dice 1,000 times.', condition: (rollType = null) => rollCount >= 1000, completed: false },
-    { id: 'obsessiveRoller', name: 'Obsessive Roller', description: 'Roll the dice 10,000 times.', condition: (rollType = null) => rollCount >= 10000, completed: false },
-    { id: 'endlessRoller', name: 'Endless Roller', description: 'Roll the dice 100,000 times.', condition: (rollType = null) => rollCount >= 100000, completed: false },
-    // rollType-based remain unchanged
+    { id: 'frequentRoller', name: 'Frequent Roller', description: 'Roll the dice 100 times.', condition: () => rollCount >= 100, completed: false },
+    { id: 'addictedRoller', name: 'Addicted Roller', description: 'Roll the dice 1,000 times.', condition: () => rollCount >= 1000, completed: false },
+    { id: 'obsessiveRoller', name: 'Obsessive Roller', description: 'Roll the dice 10,000 times.', condition: () => rollCount >= 10000, completed: false },
+    { id: 'endlessRoller', name: 'Endless Roller', description: 'Roll the dice 100,000 times.', condition: () => rollCount >= 100000, completed: false },
+
     { id: 'yahtzee', name: 'Yahtzee!', description: 'Roll a Yahtzee (Five of a Kind).', condition: (rollType) => rollType === 'Yahtzee', completed: false },
     { id: 'largeStraight', name: 'Big Ladder', description: 'Roll a Large Straight.', condition: (rollType) => rollType === 'Large Straight', completed: false },
     { id: 'smallStraight', name: 'Small Ladder', description: 'Roll a Small Straight.', condition: (rollType) => rollType === 'Small Straight', completed: false },
@@ -23,15 +23,13 @@ const achievements = [
 ];
 
 function loadAchievements() {
-    const savedAchievements = JSON.parse(localStorage.getItem('achievements'));
-    if (savedAchievements) {
-        achievements.forEach(achievement => {
-            const saved = savedAchievements.find(sa => sa.id === achievement.id);
-            if (saved) {
-                achievement.completed = saved.completed;
-            }
-        });
-    }
+    const savedAchievements = JSON.parse(localStorage.getItem('achievements')) || [];
+    achievements.forEach(achievement => {
+        const saved = savedAchievements.find(sa => sa.id === achievement.id);
+        if (saved) {
+            achievement.completed = saved.completed;
+        }
+    });
 }
 
 function saveAchievements() {
@@ -39,13 +37,19 @@ function saveAchievements() {
 }
 
 function checkAchievements(rollType) {
+    let achievementsUnlocked = false;
     achievements.forEach(achievement => {
-        if (!achievement.completed && achievement.condition(rollType)) {
+        // For rollType-based achievements, pass rollType. For others, it's not needed.
+        const conditionMet = achievement.condition(rollType); 
+        if (!achievement.completed && conditionMet) {
             achievement.completed = true;
-            saveAchievements();
+            achievementsUnlocked = true;
             console.log(`Achievement Unlocked: ${achievement.name}`);
         }
     });
+    if (achievementsUnlocked) {
+        saveAchievements();
+    }
     renderAchievements();
 }
 
