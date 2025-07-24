@@ -2,17 +2,17 @@ let totalPoints = parseInt(localStorage.getItem('totalPoints')) || 0;
 let rollCount = parseInt(localStorage.getItem('rollCount')) || 0;
 
 const achievements = [
-    { id: 'noviceRoller', name: 'Novice Roller', description: 'Reach 100 total points.', condition: (rollType, currentTotalPoints, currentRollCount) => currentTotalPoints >= 100, completed: false },
-    { id: 'experiencedGambler', name: 'Experienced Gambler', description: 'Reach 1,000 total points.', condition: (rollType, currentTotalPoints, currentRollCount) => currentTotalPoints >= 1000, completed: false },
-    { id: 'diceMaster', name: 'Dice Master', description: 'Reach 10,000 total points.', condition: (rollType, currentTotalPoints, currentRollCount) => currentTotalPoints >= 10000, completed: false },
-    { id: 'pointTycoon', name: 'Point Tycoon', description: 'Reach 100,000 total points.', condition: (rollType, currentTotalPoints, currentRollCount) => currentTotalPoints >= 100000, completed: false },
+    { id: 'noviceRoller', name: 'Novice Roller', description: 'Reach 100 points.', condition: (rollType, currentTotalPoints, currentRollCount) => currentTotalPoints >= 100, completed: false },
+    { id: 'experiencedGambler', name: 'Experienced Gambler', description: 'Reach 1,000 points.', condition: (rollType, currentTotalPoints, currentRollCount) => currentTotalPoints >= 1000, completed: false },
+    { id: 'diceMaster', name: 'Dice Master', description: 'Reach 10,000 points.', condition: (rollType, currentTotalPoints, currentRollCount) => currentTotalPoints >= 10000, completed: false },
+    { id: 'pointTycoon', name: 'Point Tycoon', description: 'Reach 100,000 points.', condition: (rollType, currentTotalPoints, currentRollCount) => currentTotalPoints >= 100000, completed: false },
     
     { id: 'frequentRoller', name: 'Frequent Roller', description: 'Roll the dice 100 times.', condition: (rollType, currentTotalPoints, currentRollCount) => currentRollCount >= 100, completed: false },
     { id: 'addictedRoller', name: 'Addicted Roller', description: 'Roll the dice 1,000 times.', condition: (rollType, currentTotalPoints, currentRollCount) => currentRollCount >= 1000, completed: false },
     { id: 'obsessiveRoller', name: 'Obsessive Roller', description: 'Roll the dice 10,000 times.', condition: (rollType, currentTotalPoints, currentRollCount) => currentRollCount >= 10000, completed: false },
     { id: 'endlessRoller', name: 'Endless Roller', description: 'Roll the dice 100,000 times.', condition: (rollType, currentTotalPoints, currentRollCount) => currentRollCount >= 100000, completed: false },
 
-    { id: 'yahtzee', name: 'Yahtzee!', description: 'Roll a Yahtzee (Five of a Kind).', condition: (rollType, currentTotalPoints, currentRollCount) => rollType === 'Yahtzee', completed: false },
+    { id: 'yahtzee', name: 'Yahtzee!', description: 'Roll a Yahtzee.', condition: (rollType, currentTotalPoints, currentRollCount) => rollType === 'Yahtzee', completed: false },
     { id: 'largeStraight', name: 'Big Ladder', description: 'Roll a Large Straight.', condition: (rollType, currentTotalPoints, currentRollCount) => rollType === 'Large Straight', completed: false },
     { id: 'smallStraight', name: 'Small Ladder', description: 'Roll a Small Straight.', condition: (rollType, currentTotalPoints, currentRollCount) => rollType === 'Small Straight', completed: false },
     { id: 'fullHouse', name: 'Full House Fun', description: 'Roll a Full House.', condition: (rollType, currentTotalPoints, currentRollCount) => rollType === 'Full House', completed: false },
