@@ -15,6 +15,17 @@
     line-height: 1.5;
     margin: 10px 0;
     word-break: break-word;
+    width: 100%;
+    max-width: 95vw;
+    padding: 0 10px; /* Added padding */
+}
+
+@media (max-width: 600px) {
+    .achievementstext {
+        width: 98vw;
+        max-width: 98vw;
+        padding: 0 6px;
+    }
 }
 
 .PlayButton {
