@@ -2,24 +2,24 @@ let totalPoints = parseInt(localStorage.getItem('totalPoints')) || 0;
 let rollCount = parseInt(localStorage.getItem('rollCount')) || 0;
 
 const achievements = [
-    { id: 'noviceRoller', name: 'Novice Roller', description: 'Reach 100 total points.', condition: () => totalPoints >= 100, completed: false },
-    { id: 'experiencedGambler', name: 'Experienced Gambler', description: 'Reach 1,000 total points.', condition: () => totalPoints >= 1000, completed: false },
-    { id: 'diceMaster', name: 'Dice Master', description: 'Reach 10,000 total points.', condition: () => totalPoints >= 10000, completed: false },
-    { id: 'pointTycoon', name: 'Point Tycoon', description: 'Reach 100,000 total points.', condition: () => totalPoints >= 100000, completed: false },
+    { id: 'noviceRoller', name: 'Novice Roller', description: 'Reach 100 total points.', condition: (rollType, currentTotalPoints, currentRollCount) => currentTotalPoints >= 100, completed: false },
+    { id: 'experiencedGambler', name: 'Experienced Gambler', description: 'Reach 1,000 total points.', condition: (rollType, currentTotalPoints, currentRollCount) => currentTotalPoints >= 1000, completed: false },
+    { id: 'diceMaster', name: 'Dice Master', description: 'Reach 10,000 total points.', condition: (rollType, currentTotalPoints, currentRollCount) => currentTotalPoints >= 10000, completed: false },
+    { id: 'pointTycoon', name: 'Point Tycoon', description: 'Reach 100,000 total points.', condition: (rollType, currentTotalPoints, currentRollCount) => currentTotalPoints >= 100000, completed: false },
     
-    { id: 'frequentRoller', name: 'Frequent Roller', description: 'Roll the dice 100 times.', condition: () => rollCount >= 100, completed: false },
-    { id: 'addictedRoller', name: 'Addicted Roller', description: 'Roll the dice 1,000 times.', condition: () => rollCount >= 1000, completed: false },
-    { id: 'obsessiveRoller', name: 'Obsessive Roller', description: 'Roll the dice 10,000 times.', condition: () => rollCount >= 10000, completed: false },
-    { id: 'endlessRoller', name: 'Endless Roller', description: 'Roll the dice 100,000 times.', condition: () => rollCount >= 100000, completed: false },
+    { id: 'frequentRoller', name: 'Frequent Roller', description: 'Roll the dice 100 times.', condition: (rollType, currentTotalPoints, currentRollCount) => currentRollCount >= 100, completed: false },
+    { id: 'addictedRoller', name: 'Addicted Roller', description: 'Roll the dice 1,000 times.', condition: (rollType, currentTotalPoints, currentRollCount) => currentRollCount >= 1000, completed: false },
+    { id: 'obsessiveRoller', name: 'Obsessive Roller', description: 'Roll the dice 10,000 times.', condition: (rollType, currentTotalPoints, currentRollCount) => currentRollCount >= 10000, completed: false },
+    { id: 'endlessRoller', name: 'Endless Roller', description: 'Roll the dice 100,000 times.', condition: (rollType, currentTotalPoints, currentRollCount) => currentRollCount >= 100000, completed: false },
 
-    { id: 'yahtzee', name: 'Yahtzee!', description: 'Roll a Yahtzee (Five of a Kind).', condition: (rollType) => rollType === 'Yahtzee', completed: false },
-    { id: 'largeStraight', name: 'Big Ladder', description: 'Roll a Large Straight.', condition: (rollType) => rollType === 'Large Straight', completed: false },
-    { id: 'smallStraight', name: 'Small Ladder', description: 'Roll a Small Straight.', condition: (rollType) => rollType === 'Small Straight', completed: false },
-    { id: 'fullHouse', name: 'Full House Fun', description: 'Roll a Full House.', condition: (rollType) => rollType === 'Full House', completed: false },
-    { id: 'fourOfAKind', name: 'Quadruple Threat', description: 'Roll a 4 of a Kind.', condition: (rollType) => rollType === '4 of a Kind', completed: false },
-    { id: 'threeOfAKind', name: 'Triple Trouble', description: 'Roll a 3 of a Kind.', condition: (rollType) => rollType === '3 of a Kind', completed: false },
-    { id: 'twoPair', name: 'Double Vision', description: 'Roll a 2 Pair.', condition: (rollType) => rollType === '2 Pair', completed: false },
-    { id: 'onePair', name: 'Just a Pair', description: 'Roll a 1 Pair.', condition: (rollType) => rollType === '1 Pair', completed: false },
+    { id: 'yahtzee', name: 'Yahtzee!', description: 'Roll a Yahtzee (Five of a Kind).', condition: (rollType, currentTotalPoints, currentRollCount) => rollType === 'Yahtzee', completed: false },
+    { id: 'largeStraight', name: 'Big Ladder', description: 'Roll a Large Straight.', condition: (rollType, currentTotalPoints, currentRollCount) => rollType === 'Large Straight', completed: false },
+    { id: 'smallStraight', name: 'Small Ladder', description: 'Roll a Small Straight.', condition: (rollType, currentTotalPoints, currentRollCount) => rollType === 'Small Straight', completed: false },
+    { id: 'fullHouse', name: 'Full House Fun', description: 'Roll a Full House.', condition: (rollType, currentTotalPoints, currentRollCount) => rollType === 'Full House', completed: false },
+    { id: 'fourOfAKind', name: 'Quadruple Threat', description: 'Roll a 4 of a Kind.', condition: (rollType, currentTotalPoints, currentRollCount) => rollType === '4 of a Kind', completed: false },
+    { id: 'threeOfAKind', name: 'Triple Trouble', description: 'Roll a 3 of a Kind.', condition: (rollType, currentTotalPoints, currentRollCount) => rollType === '3 of a Kind', completed: false },
+    { id: 'twoPair', name: 'Double Vision', description: 'Roll a 2 Pair.', condition: (rollType, currentTotalPoints, currentRollCount) => rollType === '2 Pair', completed: false },
+    { id: 'onePair', name: 'Just a Pair', description: 'Roll a 1 Pair.', condition: (rollType, currentTotalPoints, currentRollCount) => rollType === '1 Pair', completed: false },
 ];
 
 function loadAchievements() {
@@ -36,11 +36,11 @@ function saveAchievements() {
     localStorage.setItem('achievements', JSON.stringify(achievements.map(a => ({ id: a.id, completed: a.completed }))));
 }
 
-function checkAchievements(rollType) {
+function checkAchievements(rollType, currentTotalPoints, currentRollCount) {
     let achievementsUnlocked = false;
     achievements.forEach(achievement => {
-        // For rollType-based achievements, pass rollType. For others, it's not needed.
-        const conditionMet = achievement.condition(rollType); 
+        // Pass all relevant data to the condition function
+        const conditionMet = achievement.condition(rollType, currentTotalPoints, currentRollCount); 
         if (!achievement.completed && conditionMet) {
             achievement.completed = true;
             achievementsUnlocked = true;
@@ -205,7 +205,7 @@ function rollDiceAndShow() {
             rollCounterSpan.textContent = rollCount;
         }
 
-        checkAchievements(rollType); // Check for achievements after each roll
+        checkAchievements(rollType, totalPoints, rollCount); // Check for achievements after each roll
 
         // Re-enable the button
         rollBtn.disabled = false;
