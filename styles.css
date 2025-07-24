@@ -14,6 +14,7 @@
     color: #555; 
     line-height: 1.5;
     margin: 10px 0;
+    word-break: break-word;
 }
 
 .PlayButton {
@@ -126,7 +127,7 @@ body::before {
     box-shadow: 0 2px 16px #39ff1420;
     border: 2px solid #39ff14;
     max-width: 95vw;
-    width: 570px; /* Reduced from 480px to 420px for better wrapping */
+    width: 100%; /* Changed from 570px to 100% */
     text-align: left;
     font-family: 'Segoe UI', Arial, sans-serif;
     white-space: pre-wrap;    /* Allow wrapping in <pre> */
@@ -211,11 +212,11 @@ body::before {
 .TopNavButton {
     background: linear-gradient(90deg, #39ff14 0%, #1e7c2c 100%);
     color: #111;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     border: 2px solid #39ff14;
     border-radius: 12px;
-    padding: 12px 36px;
+    padding: 15px 30px;
     cursor: pointer;
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
     box-shadow: none;
