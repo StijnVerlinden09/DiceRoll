@@ -24,7 +24,8 @@
     <script src="./script.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            renderAchievements();
+            loadAchievements(); // Load achievements from localStorage
+            renderAchievements(); // Then render them
         });
     </script>
 </body>
