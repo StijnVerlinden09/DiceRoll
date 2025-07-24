@@ -127,7 +127,7 @@ body::before {
     box-shadow: 0 2px 16px #39ff1420;
     border: 2px solid #39ff14;
     max-width: 95vw;
-    width: 100%; /* Changed from 570px to 100% */
+    width: 110%; /* Changed from 570px to 100% */
     text-align: left;
     font-family: 'Segoe UI', Arial, sans-serif;
     white-space: pre-wrap;    /* Allow wrapping in <pre> */
