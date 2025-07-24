@@ -5,9 +5,12 @@ const achievements = [
     { id: 'noviceRoller', name: 'Novice Roller', description: 'Reach 100 total points.', condition: (rollType = null) => totalPoints >= 100, completed: false },
     { id: 'experiencedGambler', name: 'Experienced Gambler', description: 'Reach 1,000 total points.', condition: (rollType = null) => totalPoints >= 1000, completed: false },
     { id: 'diceMaster', name: 'Dice Master', description: 'Reach 10,000 total points.', condition: (rollType = null) => totalPoints >= 10000, completed: false },
+    { id: 'pointTycoon', name: 'Point Tycoon', description: 'Reach 100,000 total points.', condition: (rollType = null) => totalPoints >= 100000, completed: false },
+    
     { id: 'frequentRoller', name: 'Frequent Roller', description: 'Roll the dice 100 times.', condition: (rollType = null) => rollCount >= 100, completed: false },
     { id: 'addictedRoller', name: 'Addicted Roller', description: 'Roll the dice 1,000 times.', condition: (rollType = null) => rollCount >= 1000, completed: false },
     { id: 'obsessiveRoller', name: 'Obsessive Roller', description: 'Roll the dice 10,000 times.', condition: (rollType = null) => rollCount >= 10000, completed: false },
+    { id: 'endlessRoller', name: 'Endless Roller', description: 'Roll the dice 100,000 times.', condition: (rollType = null) => rollCount >= 100000, completed: false },
     // rollType-based remain unchanged
     { id: 'yahtzee', name: 'Yahtzee!', description: 'Roll a Yahtzee (Five of a Kind).', condition: (rollType) => rollType === 'Yahtzee', completed: false },
     { id: 'largeStraight', name: 'Big Ladder', description: 'Roll a Large Straight.', condition: (rollType) => rollType === 'Large Straight', completed: false },
