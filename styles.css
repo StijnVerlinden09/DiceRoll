@@ -37,8 +37,8 @@
 .PlayButton:hover, .PlayButton:focus {
     background: linear-gradient(90deg, #1e7c2c 0%, #39ff14 100%);
     color: #fff;
-    transform: scale(1.05);
-    box-shadow: 0 6px 32px #39ff1490;
+    transform: scale(1.08);
+    box-shadow: 0 8px 40px #39ff1490;
     outline: none;
 }
 
