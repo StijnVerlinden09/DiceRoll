@@ -1,0 +1,26 @@
+ {
+  "name": "Dice Roll",
+  "short_name": "Dice Roll",
+  "description": "A dice rolling game.",
+  "start_url": "/DiceRoll",
+  "scope": "/DiceRoll",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "categories": ["entertainment", "games"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "fav.ico",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "fav.ico",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+}
