@@ -64,6 +64,7 @@ function renderAchievements() {
                 <div class="achievement-item">
                     <span class="achievement-name">${achievement.name}</span>: 
                     <span class="achievement-description">${achievement.description}</span>
+                    <br>
                     <span class="${statusClass}">(${status})</span>
                 </div>
             `;

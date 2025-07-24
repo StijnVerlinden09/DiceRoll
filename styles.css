@@ -3,7 +3,7 @@
     font-weight: bold;
     color: #39ff14;
     margin-bottom: 20px;
-    margin-top: 80px;
+    margin-top: 90px;
     letter-spacing: 2px;
     text-shadow: 0 0 10px #39ff14, 0 0 20px #fff;
     text-align: center;
@@ -24,7 +24,7 @@
     .achievementstext {
         width: 98vw;
         max-width: 98vw;
-        padding: 0 6px;
+        padding: 0 10px;
     }
 }
 
@@ -283,7 +283,7 @@ body::before {
 
 .achievement-item {
     margin-bottom: 10px;
-    padding: 10px;
+    padding: 14px;
     border: 1px solid #39ff14;
     border-radius: 8px;
     background-color: #222;
